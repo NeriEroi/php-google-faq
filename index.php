@@ -29,6 +29,17 @@ $FAQs = [
         Scopri quali misure adottiamo per garantire protezione e sicurezza alle tue informazioni personali, lasciando a te il controllo.",
     ],
     [
+        "domanda" => "Perché il mio account è associato a un paese?",
+        'risposta' => [
+            "uno" => "Il tuo account è associato a un paese (o territorio) nei Termini di servizio per poter stabilire due cose:
+
+            La società consociata Google che offre i servizi, tratta le tue informazioni ed è responsabile del rispetto delle leggi sulla privacy vigenti. Generalmente Google offre i propri servizi per i consumatori tramite una delle due società seguenti:
+            Google Ireland Limited, se gli utenti sono residenti nello Spazio economico europeo (paesi dell'Unione europea, oltre a Islanda, Liechtenstein e Norvegia) o in Svizzera.
+            Google LLC, con sede negli Stati Uniti, per il resto del mondo.",
+            "due" => "La versione dei termini che regola il nostro rapporto, che può variare in base alle leggi locali."
+        ],
+    ],
+    [
         'domanda' => "Stabilire il paese associato al tuo account?",
         'risposta' => "Quando crei un nuovo Account Google, lo associamo a un paese in base a dove è stato creato. Per quanto riguarda gli account creati almeno un anno fa, usiamo il paese da cui accedi solitamente ai servizi Google, in genere i servizi in cui hai trascorso più tempo nell'ultimo anno.
 
@@ -50,21 +61,30 @@ $FAQs = [
 ];
 
 // foreach ($FAQs as $FAQ) {
-//     echo "DOMANDA" . $FAQ["domanda"] . "<br/>";
-//     echo "RISPOSTA" . $FAQ["risposta"] . "<br/>";
-// }
+//     echo "DOMANDA" . " - " . $FAQ["domanda"] . "<br/>";
+//     echo "RISPOSTA" . " - " . $FAQ["risposta"] . "<br/>";
+// };
+
 
 
 ?>
 
 <ul>
+    
     <?php foreach ($FAQs as $FAQ) { ?>
         <li>
            <?php echo "DOMANDA" . " - " . $FAQ["domanda"] . "<br/>"; ?> 
         </li>
+        <?php if (!is_array($FAQ["risposta"])) { ?>
         <li>
-           <?php echo "RISPOSTA" . " - " . $FAQ["risposta"] . "<br/>" ?> 
+            <?php echo "RISPOSTA" . " - " . $FAQ["risposta"] . "<br/>" ?>
         </li>
+        <?php } else { echo "<ol>"; foreach ($FAQ["risposta"] as $risposta) { ?>
+            <li>
+                <?php echo "RISPOSTA" . " - " . $risposta . "<br/>" ?>
+            </li>
+        <?php } echo "</ol>"; } ?>
+
     <?php } ?>
 </ul>
 
