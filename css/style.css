@@ -1,0 +1,35 @@
+body {
+    font-family:sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+ul {
+    list-style-type: none;
+    width: 800px;
+}
+
+ul span {
+    color: blue;
+}
+
+ul .domanda {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+ul .risposta {
+    font-size: 15px;
+    margin-bottom: 40px;
+}
+
+ul .risposta .acapo {
+    margin-bottom: 20px;
+}
+
+
+
